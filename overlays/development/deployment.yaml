@@ -1,0 +1,16 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: example1
+  labels:
+    env: development
+spec:
+  replicas: 4
+  template:
+    spec:
+      $setElementOrder/containers:
+      - name: app
+      containers:
+      - image: httpd:2.4
+        name: app
+
