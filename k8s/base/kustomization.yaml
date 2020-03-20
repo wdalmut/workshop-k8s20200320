@@ -8,4 +8,5 @@ resources:
   - service2.yaml
   - service.yaml
   - service-micro1.yaml
+  - mysql.yaml
 
