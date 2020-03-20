@@ -1,0 +1,30 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: app-ingress
+  annotations:
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/scheme: internet-facing
+spec:
+  rules:
+    - host: micro1.walterdalmut.com
+      http:
+        paths:
+        - path: /
+          backend:
+            serviceName: micro1
+            servicePort: 3000
+    - host: app1.walterdalmut.com
+      http:
+        paths:
+        - path: /
+          backend:
+            serviceName: app1
+            servicePort: 80
+    - http:
+        paths:
+        - path: /
+          backend:
+            serviceName: app2
+            servicePort: 80
+

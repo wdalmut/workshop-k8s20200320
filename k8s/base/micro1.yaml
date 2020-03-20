@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: micro1
+spec:
+  selector:
+    matchLabels:
+      app: micro1
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: micro1
+    spec:
+      containers:
+      - name: app
+        image: 475714516889.dkr.ecr.eu-central-1.amazonaws.com/workshop2020/micro1
+        ports:
+          - containerPort: 3000
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "128m"
+          limits:
+            memory: "256Mi"
+            cpu: "256m"
+

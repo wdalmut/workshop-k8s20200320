@@ -5,7 +5,7 @@ metadata:
 spec:
   selector:
     app: app2
-  type: ClusterIP
+  type: NodePort
   ports:
     - protocol: TCP
       port: 80

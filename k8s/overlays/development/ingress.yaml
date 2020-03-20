@@ -6,6 +6,13 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
+    - host: micro1.172.17.0.2.xip.io
+      http:
+        paths:
+        - path: /
+          backend:
+            serviceName: micro1
+            servicePort: 3000
     - http:
         paths:
         - path: /app1

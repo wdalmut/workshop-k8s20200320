@@ -1,0 +1,20 @@
+apiVersion: skaffold/v1
+kind: Config
+metadata:
+  name: workshop2020
+build:
+  artifacts:
+  - image: 475714516889.dkr.ecr.eu-central-1.amazonaws.com/workshop2020/micro1
+    context: src/micro1
+    docker:
+      dockerfile: Dockerfile
+deploy:
+  kustomize:
+    path: k8s/overlays/development
+
+profiles:
+  - name: production
+    deploy:
+      kustomize:
+        path: k8s/overlays/production
+

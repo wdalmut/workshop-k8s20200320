@@ -6,6 +6,7 @@ bases:
 
 patchesStrategicMerge:
   - deployment.yaml
+  - micro1.yaml
 
 resources:
   - ingress.yaml
